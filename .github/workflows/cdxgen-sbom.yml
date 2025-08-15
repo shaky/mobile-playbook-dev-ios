@@ -27,7 +27,7 @@ on:
         default: false
         description: >
           Enable debug mode for CycloneDX generator
-    secrets:
+    # secrets:
       # setting some secrets to be used in the workflow
 
 permissions:
@@ -58,7 +58,7 @@ jobs:
            echo "Listing SBOM file:"
            ls -l sbom.json
            ls -l app/sbom.json 
-           
+
       # After generating the SBOM, it is uploaded it to Dependency-Track
     #   - name: Upload SBOM to Dependency-Track
         # run: |
