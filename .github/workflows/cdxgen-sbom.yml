@@ -47,21 +47,29 @@ jobs:
       # checkout the code, set credentials for private registries or hosting providers 
       - name: Checkout Repository
         uses: actions/checkout@v3
-        
+
+      # Retrive secret for dependency-Track API key
+      # ${{ secrets.DEP_TRACK_API_KEY }}
       - name: Generate SBOM
         run: |
+          # Create output directory with proper permissions
+          mkdir -p ./output
+          chmod 777 ./output
+          
           docker run --rm \
           ${{ (inputs.use_cdxgen_debug_mode || false) && '-e CDXGEN_DEBUG_MODE=debug' || '' }} \
           -e FETCH_LICENSE=true \
-          -v /tmp:/tmp -v $(pwd):/app:rw \
+          -v $(pwd):/app:rw \
           ghcr.io/cyclonedx/${{ inputs.cdx_image || 'cdxgen' }}:${{ inputs.cdx_version || 'v11.5.0' }} \
-          -r /app --type swift ./MASTestApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved -o /app/sbom.json
+          -r /app --type swift ./MASTestApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved -o /app/output/sbom.json
+          
+          # Move the SBOM to the root directory for easier access
+          mv ./output/sbom.json ./sbom.json
 
       - name: list SBOM file
         run: |
            echo "Listing SBOM file:"
-           ls -l sbom.json
-           ls -l app/sbom.json 
+           ls -l sbom.json 
 
       # After generating the SBOM, it is uploaded it to Dependency-Track
     #   - name: Upload SBOM to Dependency-Track
