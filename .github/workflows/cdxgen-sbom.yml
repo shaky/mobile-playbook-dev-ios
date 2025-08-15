@@ -3,7 +3,11 @@ name: Generate and Upload SBOM via cdxgen
 # See here for more information: https://superluminar.io/2025/06/10/generating-sboms-using-github-actions-and-cdxgen/
 
 on:
-  workflow_call:
+  push:
+    branches: [ "**" ]  # Trigger on push to any branch
+  pull_request:
+    branches: [ "**" ]  # Trigger on pull requests to any branch
+  workflow_call:  # Keep this to allow manual reuse as well
     inputs:
       cdx_version:
         required: false
@@ -47,10 +51,10 @@ jobs:
       - name: Generate SBOM
         run: |
           docker run --rm \
-          ${{ inputs.use_cdxgen_debug_mode && '-e CDXGEN_DEBUG_MODE=debug' || '' }} \
+          ${{ (inputs.use_cdxgen_debug_mode || false) && '-e CDXGEN_DEBUG_MODE=debug' || '' }} \
           -e FETCH_LICENSE=true \
           -v /tmp:/tmp -v $(pwd):/app:rw \
-          ghcr.io/cyclonedx/${{ inputs.cdx_image }}:${{ inputs.cdx_version }} \
+          ghcr.io/cyclonedx/${{ inputs.cdx_image || 'cdxgen' }}:${{ inputs.cdx_version || 'v11.5.0' }} \
           -r /app --type swift ./MASTestApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved -o /app/sbom.json
 
       - name: list SBOM file
