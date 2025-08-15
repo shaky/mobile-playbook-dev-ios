@@ -72,6 +72,7 @@ jobs:
            ls -l sbom.json 
            cat sbom.json
 
+           
       # After generating the SBOM, it is uploaded it to Dependency-Track
     #   - name: Upload SBOM to Dependency-Track
         # run: |
