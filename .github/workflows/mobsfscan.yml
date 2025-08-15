@@ -24,9 +24,9 @@ jobs:
     - name: mobsfscan
       uses: MobSF/mobsfscan@main
       with:
-        args: '. --sarif --output results.sarif || true'
+        args: 'Find_my_Data --sarif --output results.sarif || true'
     # Upload the SARIF file to Github, so the findings show up in "Security / Code Scanning alerts"
-    # - name: Upload mobsfscan report
-    #   uses: github/codeql-action/upload-sarif@v2
-    #   with:
-    #     sarif_file: results.sarif
+    - name: Upload mobsfscan report
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: results.sarif
