@@ -66,10 +66,11 @@ jobs:
           # Move the SBOM to the root directory for easier access
           mv ./output/sbom.json ./sbom.json
 
-      - name: list SBOM file
+      - name: list and cat SBOM file
         run: |
            echo "Listing SBOM file:"
            ls -l sbom.json 
+           cat sbom.json
 
       # After generating the SBOM, it is uploaded it to Dependency-Track
     #   - name: Upload SBOM to Dependency-Track
