@@ -61,7 +61,7 @@ jobs:
           -e FETCH_LICENSE=true \
           -v $(pwd):/app:rw \
           ghcr.io/cyclonedx/${{ inputs.cdx_image || 'cdxgen' }}:${{ inputs.cdx_version || 'v11.5.0' }} \
-          -r /app --type swift ./MASTestApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved -o /app/output/sbom.json --server-url http://dep-track.s7ven.info:8081 --api-key ${{ secrets.DEP_TRACK_API_KEY }} --project-id 18b22b91-2895-48d5-8d9c-3e9942f47d32
+          -r /app --type swift ./MASTestApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved -o /app/output/sbom.json --server-url http://dep-track.s7ven.info:8081 --api-key ${{ secrets.DEP_TRACK_API_KEY }} --project-id 782364f2-fdec-430f-a2c5-112118ba5d12
           
           # Move the SBOM to the root directory for easier access
           mv ./output/sbom.json ./sbom.json
@@ -72,7 +72,7 @@ jobs:
            ls -l sbom.json 
            cat sbom.json
 
-           
+
       # After generating the SBOM, it is uploaded it to Dependency-Track
     #   - name: Upload SBOM to Dependency-Track
         # run: |
