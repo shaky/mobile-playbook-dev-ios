@@ -10,7 +10,7 @@ import SwiftUI
 import WebKit
 
 struct ContentView: View {
-    @EnvironmentObject var service: ToDoService   
+    @EnvironmentObject var service: ToDoService
 
     var body: some View {
         VStack {

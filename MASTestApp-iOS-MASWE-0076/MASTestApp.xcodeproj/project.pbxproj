@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6186EC272CCE36A700780D12 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6186EC262CCE36A700780D12 /* Alamofire */; };
+		61F2FBDE2E4F89AF00F29BD0 /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = 61F2FBDD2E4F89AF00F29BD0 /* NIO */; };
+		61F2FBE02E4F89AF00F29BD0 /* NIOConcurrencyHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 61F2FBDF2E4F89AF00F29BD0 /* NIOConcurrencyHelpers */; };
+		61F2FBE22E4F89AF00F29BD0 /* NIOFoundationCompat in Frameworks */ = {isa = PBXBuildFile; productRef = 61F2FBE12E4F89AF00F29BD0 /* NIOFoundationCompat */; };
+		61F2FBE42E4F89AF00F29BD0 /* NIOHTTP1 in Frameworks */ = {isa = PBXBuildFile; productRef = 61F2FBE32E4F89AF00F29BD0 /* NIOHTTP1 */; };
+		61F2FBE62E4F89AF00F29BD0 /* NIOTLS in Frameworks */ = {isa = PBXBuildFile; productRef = 61F2FBE52E4F89AF00F29BD0 /* NIOTLS */; };
 		CBFA8C082BDE94710047F3A3 /* MASTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFA8C072BDE94710047F3A3 /* MASTestAppApp.swift */; };
 		CBFA8C0A2BDE94710047F3A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFA8C092BDE94710047F3A3 /* ContentView.swift */; };
 		CBFA8C0C2BDE94720047F3A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBFA8C0B2BDE94720047F3A3 /* Assets.xcassets */; };
@@ -29,7 +34,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61F2FBE22E4F89AF00F29BD0 /* NIOFoundationCompat in Frameworks */,
+				61F2FBE02E4F89AF00F29BD0 /* NIOConcurrencyHelpers in Frameworks */,
 				6186EC272CCE36A700780D12 /* Alamofire in Frameworks */,
+				61F2FBE42E4F89AF00F29BD0 /* NIOHTTP1 in Frameworks */,
+				61F2FBDE2E4F89AF00F29BD0 /* NIO in Frameworks */,
+				61F2FBE62E4F89AF00F29BD0 /* NIOTLS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +128,7 @@
 			mainGroup = CBFA8BFB2BDE94710047F3A3;
 			packageReferences = (
 				6186EC252CCE36A700780D12 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				61F2FBDC2E4F89AF00F29BD0 /* XCRemoteSwiftPackageReference "swift-nio" */,
 			);
 			productRefGroup = CBFA8C052BDE94710047F3A3 /* Products */;
 			projectDirPath = "";
@@ -369,6 +380,14 @@
 				minimumVersion = 5.10.1;
 			};
 		};
+		61F2FBDC2E4F89AF00F29BD0 /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -376,6 +395,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6186EC252CCE36A700780D12 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		61F2FBDD2E4F89AF00F29BD0 /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61F2FBDC2E4F89AF00F29BD0 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
+		};
+		61F2FBDF2E4F89AF00F29BD0 /* NIOConcurrencyHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61F2FBDC2E4F89AF00F29BD0 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOConcurrencyHelpers;
+		};
+		61F2FBE12E4F89AF00F29BD0 /* NIOFoundationCompat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61F2FBDC2E4F89AF00F29BD0 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOFoundationCompat;
+		};
+		61F2FBE32E4F89AF00F29BD0 /* NIOHTTP1 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61F2FBDC2E4F89AF00F29BD0 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOHTTP1;
+		};
+		61F2FBE52E4F89AF00F29BD0 /* NIOTLS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61F2FBDC2E4F89AF00F29BD0 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOTLS;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
