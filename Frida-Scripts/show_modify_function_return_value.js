@@ -18,4 +18,4 @@ function show_modify_function_return_value(className_arg, funcName_arg)
     });
 }
 //YOUR_CLASS_NAME_HERE and YOUR_EXACT_FUNC_NAME_HERE
-show_modify_function_return_value("YOUR_CLASS_NAME_HERE" ,"YOUR_EXACT_FUNC_NAME_HERE")
+show_modify_function_return_value("LoginValidate" ,"YOUR_EXACT_FUNC_NAME_HERE")

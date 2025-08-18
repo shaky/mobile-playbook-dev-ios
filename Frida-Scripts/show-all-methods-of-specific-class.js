@@ -4,7 +4,7 @@ if (ObjC.available)
     try
     {
         //Your class name here
-        var className = "XXXXXXX";
+        var className = "LoginValidate";
         var methods = eval('ObjC.classes.' + className + '.$methods');
         for (var i = 0; i < methods.length; i++)
         {
